@@ -1,0 +1,11 @@
+{
+  "model_name": "multi-qa-MiniLM-L6-cos-v1",
+  "index_path": "../embeddings/vector_store",
+  "search_type": "mmr",
+  "k": 5,
+  "fetch_k": 20,
+  "lambda_mult": 0.5,
+  "total_chunks": 2997,
+  "total_vectors": 2997,
+  "embedding_dims": 384
+}
