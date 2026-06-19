@@ -1,0 +1,215 @@
+{
+  "description": "FitRAG evaluation set. Categories: in_scope (answerable from KB), ambiguous (under-specified but partially answerable), out_of_scope (refuse). expected_sources lists PDF file stems that should appear in a correct retrieval.",
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "in_scope",
+      "question": "How many days per week of muscle-strengthening activity does the WHO recommend for adults?",
+      "reference_answer": "At least 2 days per week of muscle-strengthening activities involving all major muscle groups.",
+      "expected_sources": ["WHO.pdf"]
+    },
+    {
+      "id": "Q02",
+      "category": "in_scope",
+      "question": "What weekly aerobic activity minimum does the WHO recommend for adults?",
+      "reference_answer": "150-300 minutes of moderate-intensity, or 75-150 minutes of vigorous-intensity aerobic activity per week (or an equivalent combination).",
+      "expected_sources": ["WHO.pdf"]
+    },
+    {
+      "id": "Q03",
+      "category": "in_scope",
+      "question": "What is progressive overload?",
+      "reference_answer": "The gradual increase of stress placed on the body during training (load, volume, frequency, intensity, complexity) so that adaptation continues and progress does not plateau.",
+      "expected_sources": ["progressive_overload.pdf", "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf"]
+    },
+    {
+      "id": "Q04",
+      "category": "in_scope",
+      "question": "How many sets and reps should a beginner perform per exercise according to NSCA guidance for older adults / novices?",
+      "reference_answer": "About 2-3 sets per exercise, 10-15 repetitions at a lower relative resistance for beginners.",
+      "expected_sources": ["NSCA_3.pdf"]
+    },
+    {
+      "id": "Q05",
+      "category": "in_scope",
+      "question": "According to Starting Strength's 'Who Wants to Be a Novice?', how often should a novice train per week and with what rest pattern?",
+      "reference_answer": "Three sessions per week, training then resting roughly 48 hours, with a longer (~72 hour) rest after the third session of the week.",
+      "expected_sources": ["SSW.pdf"]
+    },
+    {
+      "id": "Q06",
+      "category": "in_scope",
+      "question": "Is resistance training safe for children and adolescents according to the NSCA youth position statement?",
+      "reference_answer": "Yes. A properly designed and supervised resistance training program is safe and effective for children and adolescents and can offer health, fitness, and performance benefits.",
+      "expected_sources": ["NSCA_2.pdf"]
+    },
+    {
+      "id": "Q07",
+      "category": "in_scope",
+      "question": "What are the main benefits of resistance training for older adults?",
+      "reference_answer": "Improvements in muscle strength, power, muscle mass, physical function, mobility, bone health, and reductions in fall risk and chronic disease impact.",
+      "expected_sources": ["NSCA_3.pdf"]
+    },
+    {
+      "id": "Q08",
+      "category": "in_scope",
+      "question": "What is long-term athletic development (LTAD)?",
+      "reference_answer": "A multi-stage, long-term approach to nurturing physical and psychosocial development across childhood and adolescence to support lifelong physical activity and athletic performance.",
+      "expected_sources": ["NSCA_4.pdf"]
+    },
+    {
+      "id": "Q09",
+      "category": "in_scope",
+      "question": "What does the NSCA recommend regarding qualified instruction and supervision for youth resistance training?",
+      "reference_answer": "Youth resistance training should be conducted with qualified instruction and supervision, in a safe environment, with a dynamic warm-up and a focus on proper technique.",
+      "expected_sources": ["NSCA_2.pdf", "NSCA_5.pdf"]
+    },
+    {
+      "id": "Q10",
+      "category": "in_scope",
+      "question": "What variables can be manipulated to create progressive overload?",
+      "reference_answer": "Variables include load/resistance, repetitions, sets, frequency, training density, speed/velocity, range of motion, and exercise complexity.",
+      "expected_sources": ["progressive_overload.pdf"]
+    },
+    {
+      "id": "Q11",
+      "category": "in_scope",
+      "question": "Does the WHO recommend any physical activity even for people who cannot meet the full guidelines?",
+      "reference_answer": "Yes. Doing some physical activity is better than doing none; people who cannot meet the recommendations should still be as active as their abilities allow.",
+      "expected_sources": ["WHO.pdf"]
+    },
+    {
+      "id": "Q12",
+      "category": "in_scope",
+      "question": "What does NSCA say about weightlifting (Olympic-style lifts) for sports performance?",
+      "reference_answer": "Weightlifting exercises and their derivatives are an effective method to develop muscular power and improve sports performance when properly programmed and supervised.",
+      "expected_sources": ["NSCA_5.pdf"]
+    },
+    {
+      "id": "Q13",
+      "category": "in_scope",
+      "question": "What is the recommended frequency of resistance training per muscle group for older adults?",
+      "reference_answer": "2-3 days per week per muscle group, performed on non-consecutive days.",
+      "expected_sources": ["NSCA_3.pdf"]
+    },
+    {
+      "id": "Q14",
+      "category": "in_scope",
+      "question": "How does continuous running combined with strength endurance training affect muscular endurance according to the JUMORA study?",
+      "reference_answer": "The combination of strength endurance training with continuous running improves muscular endurance compared to baseline.",
+      "expected_sources": ["Increasing_Anaerobic_Endurance_Using_Strength_Endu.pdf"]
+    },
+    {
+      "id": "Q15",
+      "category": "in_scope",
+      "question": "What does the progressive overload scoping review say about how progressive overload is reported in long-term exercise studies?",
+      "reference_answer": "Reporting of progressive overload parameters is inconsistent in the literature; few studies examine progressive overload as an independent variable, limiting strong conclusions.",
+      "expected_sources": ["ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf"]
+    },
+    {
+      "id": "Q16",
+      "category": "in_scope",
+      "question": "What warm-up does the NSCA recommend before a youth resistance training session?",
+      "reference_answer": "A 5- to 10-minute dynamic warm-up at the start of each training session.",
+      "expected_sources": ["NSCA_5.pdf"]
+    },
+    {
+      "id": "Q17",
+      "category": "in_scope",
+      "question": "Why does Rippetoe argue that a novice should do only a few basic barbell exercises rather than many machine exercises?",
+      "reference_answer": "Because basic compound barbell lifts drive the most growth and strength gains for a novice; only a handful of exercises are needed for several months, and extras can interfere with recovery.",
+      "expected_sources": ["SSW.pdf"]
+    },
+    {
+      "id": "Q18",
+      "category": "in_scope",
+      "question": "What does the WHO say about sedentary behaviour for adults?",
+      "reference_answer": "Adults should limit the amount of time spent being sedentary and replace sedentary time with physical activity of any intensity for health benefits.",
+      "expected_sources": ["WHO.pdf"]
+    },
+    {
+      "id": "Q19",
+      "category": "in_scope",
+      "question": "How should training load progress for a true novice according to Starting Strength?",
+      "reference_answer": "Start with light weights (even an empty bar), perform sets of 5, and add small increments each workout while form remains good.",
+      "expected_sources": ["SSW.pdf"]
+    },
+    {
+      "id": "Q20",
+      "category": "in_scope",
+      "question": "What recovery considerations does the NSCA LTAD position statement emphasize?",
+      "reference_answer": "Rest and recovery should be scheduled as mandatory parts of the training plan to optimise physical development and minimise accumulated fatigue, regardless of coach or parental pressure.",
+      "expected_sources": ["NSCA_4.pdf"]
+    },
+    {
+      "id": "Q21",
+      "category": "ambiguous",
+      "question": "How much should I train?",
+      "reference_answer": "Depends on goals and population, but the WHO baseline is 150-300 min moderate or 75-150 min vigorous aerobic activity per week plus muscle-strengthening 2+ days/week; novice strength programs typically run 2-3 sessions/week.",
+      "expected_sources": ["WHO.pdf", "SSW.pdf", "NSCA_3.pdf"]
+    },
+    {
+      "id": "Q22",
+      "category": "ambiguous",
+      "question": "Is more training always better?",
+      "reference_answer": "No. Rest and recovery are mandatory; excessive training without recovery accumulates fatigue and harms adaptation.",
+      "expected_sources": ["NSCA_4.pdf", "SSW.pdf"]
+    },
+    {
+      "id": "Q23",
+      "category": "ambiguous",
+      "question": "What is the best workout?",
+      "reference_answer": "There is no single 'best' workout in the sources; the right program depends on age, goals, and experience. The KB only provides general guidelines (frequency, intensity, progression).",
+      "expected_sources": []
+    },
+    {
+      "id": "Q24",
+      "category": "ambiguous",
+      "question": "Should children lift weights?",
+      "reference_answer": "Yes, when properly supervised and programmed: NSCA endorses youth resistance training for safety, health and performance benefits.",
+      "expected_sources": ["NSCA_2.pdf"]
+    },
+    {
+      "id": "Q25",
+      "category": "ambiguous",
+      "question": "How do older adults stay strong?",
+      "reference_answer": "Through regular resistance training 2-3 days/week per muscle group at appropriate intensity, with progressive overload, supporting muscle, bone, and functional health.",
+      "expected_sources": ["NSCA_3.pdf", "WHO.pdf"]
+    },
+    {
+      "id": "Q26",
+      "category": "out_of_scope",
+      "question": "What should I eat before a workout to maximise performance?",
+      "reference_answer": "REFUSAL: nutrition / pre-workout meal guidance is not in the knowledge base.",
+      "expected_sources": []
+    },
+    {
+      "id": "Q27",
+      "category": "out_of_scope",
+      "question": "Which creatine brand is the best?",
+      "reference_answer": "REFUSAL: supplement brand reviews are not in the knowledge base.",
+      "expected_sources": []
+    },
+    {
+      "id": "Q28",
+      "category": "out_of_scope",
+      "question": "How do I treat a torn ACL?",
+      "reference_answer": "REFUSAL: medical treatment of injuries is not in the knowledge base.",
+      "expected_sources": []
+    },
+    {
+      "id": "Q29",
+      "category": "out_of_scope",
+      "question": "What's the weather like for outdoor running today?",
+      "reference_answer": "REFUSAL: real-time weather information is not in the knowledge base.",
+      "expected_sources": []
+    },
+    {
+      "id": "Q30",
+      "category": "out_of_scope",
+      "question": "Can you write me a Python script to track my workouts?",
+      "reference_answer": "REFUSAL: code generation is outside the fitness knowledge base.",
+      "expected_sources": []
+    }
+  ]
+}
