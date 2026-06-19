@@ -1,0 +1,533 @@
+{
+  "config": {
+    "name": "direct_llm",
+    "embedding_model": "multi-qa-MiniLM-L6-cos-v1",
+    "index_path": "embeddings/vector_store",
+    "search_type": "mmr",
+    "k": 5,
+    "fetch_k": 20,
+    "lambda_mult": 0.5,
+    "use_retrieval": false,
+    "llm_backend": "ollama",
+    "llm_model": "llama3.1:8b",
+    "temperature": 0,
+    "max_tokens": 1024,
+    "prompt_variant": "strict",
+    "judge": true,
+    "judge_backend": "ollama",
+    "judge_model": "qwen2.5:7b-instruct",
+    "judge_sleep": 0
+  },
+  "aggregate": {
+    "n_questions": 30,
+    "recall_at_k": 0.0,
+    "precision_at_k": 0.0,
+    "mrr": 0.0,
+    "hit_rate": 0.0,
+    "recall_at_k_in_scope": 0.0,
+    "correctness_in_scope": 0.7125,
+    "correctness_ambiguous": 0.75,
+    "faithfulness": null,
+    "refusal_accuracy": 0.8,
+    "in_scope_refused_rate": 0.0,
+    "out_of_scope_refused_rate": 0.0,
+    "ambiguous_refused_rate": 0.0
+  },
+  "per_question": [
+    {
+      "id": "Q01",
+      "category": "in_scope",
+      "question": "How many days per week of muscle-strengthening activity does the WHO recommend for adults?",
+      "expected_sources": [
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "According to the World Health Organization (WHO), adults should aim to do muscle-strengthening activities at least **2 times per week**. This can include exercises like weightlifting, bodyweight exercises, or resistance band exercises that work all major muscle groups.\n\nIt's also important to note that these activities should be done in addition to regular aerobic exercise, such as walking, running, cycling, or swimming, which is recommended at least **150 minutes per week**.",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct on days of muscle-strengthening activity but includes additional aerobic exercise details not asked."
+    },
+    {
+      "id": "Q02",
+      "category": "in_scope",
+      "question": "What weekly aerobic activity minimum does the WHO recommend for adults?",
+      "expected_sources": [
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'm happy to share this important information with you!\n\nAccording to the World Health Organization (WHO), adults should engage in at least 150 minutes of moderate-intensity aerobic physical activity or 75 minutes of vigorous-intensity aerobic physical activity per week. This can be broken down into:\n\n* At least 30 minutes of moderate-intensity aerobic activity per day, 5 days a week\n* Or at least 25 minutes of vigorous-intensity aerobic activity per day, 3 days a week\n\nModerate-intensity activities include brisk walking, cycling, or dancing, while vigorous-intensity activities include running, jumping rope, or boxing.\n\nRemember, every bit counts! Even small amounts of physical activity can have health benefits. So, start with what you can do and gradually increase your intensity and duration over time.\n\nNow, are you ready to get moving?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise."
+    },
+    {
+      "id": "Q03",
+      "category": "in_scope",
+      "question": "What is progressive overload?",
+      "expected_sources": [
+        "progressive_overload.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "Welcome to the world of fitness!\n\nProgressive overload is a fundamental concept in weightlifting and resistance training that's essential for building strength and muscle mass. So, let me break it down for you in simple terms:\n\n**What is Progressive Overload?**\n\nProgressive overload refers to gradually increasing the intensity of your workouts over time by adding more weight, reps, or sets to challenge your muscles. The goal is to continually push yourself beyond what you're capable of doing previously.\n\n**Why is Progressive Overload Important?**\n\nWhen you start lifting weights, your body adapts quickly to the demands placed on it. If you do the same workout routine repeatedly without increasing the intensity, your progress will plateau, and you'll stop making gains in strength or muscle mass.\n\nProgressive overload helps prevent this by:\n\n1. **Increasing Muscle Strength**: As you lift heavier weights or perform more reps, your muscles become stronger.\n2. **Building Muscle Mass**: Progressive overload stimulates muscle growth by challenging your muscles to work harder.\n3. **Improving Bone Density**: Resistance training with progressive overload can help strengthen bones and reduce the risk of osteoporosis.\n\n**How to Apply Progressive Overload**\n\nTo incorporate progressive overload into your workout routine:\n\n1. **Increase Weight**: Gradually add weight to your lifts over time (e.g., 2.5-5lbs every two weeks).\n2. **Add Reps or Sets**: Increase the number of reps or sets you do for a particular exercise.\n3. **Decrease Rest Time**: Reduce the rest period between sets to challenge yourself further.\n\nRemember, progressive overload is not about pushing yourself too hard and risking injury. It's about gradually increasing the intensity of your workouts over time to continue making progress in strength and muscle mass.\n\nNow that you know what progressive overload is, are you ready to start challenging yourself and reaching new fitness goals?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but includes additional information not relevant to the question."
+    },
+    {
+      "id": "Q04",
+      "category": "in_scope",
+      "question": "How many sets and reps should a beginner perform per exercise according to NSCA guidance for older adults / novices?",
+      "expected_sources": [
+        "NSCA_3.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As a beginner-friendly expert, I'm happy to share the guidelines from the National Strength and Conditioning Association (NSCA) specifically tailored for older adults and novices.\n\nAccording to the NSCA, for beginners or older adults, it's recommended to start with:\n\n* 2-3 sets per exercise\n* 8-12 repetitions per set\n\nThis is often referred to as a \"hypertrophy\" protocol, which focuses on building muscle endurance and strength. The key is to start slow and progress gradually.\n\nHere's why this approach is beneficial for beginners or older adults:\n\n1. **Reduced risk of injury**: Lower sets and reps reduce the overall stress on your muscles and joints.\n2. **Improved technique**: With fewer sets, you'll have more time to focus on proper form and technique.\n3. **Increased muscle endurance**: This protocol helps build muscle endurance, which is essential for everyday activities and daily life.\n\nRemember, as you get stronger and more comfortable with exercise, you can gradually increase the number of sets and reps over time. But for now, start with 2-3 sets and 8-12 reps per exercise to set yourself up for success!",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct on sets and reps range but uses hypertrophy protocol which is not specifically recommended by NSCA for older adults/novices."
+    },
+    {
+      "id": "Q05",
+      "category": "in_scope",
+      "question": "According to Starting Strength's 'Who Wants to Be a Novice?', how often should a novice train per week and with what rest pattern?",
+      "expected_sources": [
+        "SSW.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "According to Mark Rippetoe's \"Starting Strength\" book, specifically the section on \"Who Wants to Be a Novice?\", it's recommended that a novice lifter trains 3 times per week.\n\nThe suggested training split is:\n\n* Monday: Squats\n* Wednesday: Deadlifts\n* Friday: Bench Press\n\nAs for rest pattern, Rippetoe recommends a linear progression, where you increase the weight lifted by 2.5-5kg (5-10lbs) every workout, with no deload weeks. This means that you'll be lifting heavier weights each week, but still allowing for some recovery time between workouts.\n\nIn terms of specific rest periods, Rippetoe suggests:\n\n* Squats: 3 sets of 3 reps\n* Deadlifts: 3 sets of 3 reps\n* Bench Press: 3 sets of 3 reps\n\nRest for 2-5 minutes between sets, and 60-90 seconds between exercises.\n\nRemember, this is a general guideline, and it's always best to consult with a qualified trainer or coach to determine the best training plan for your individual needs and goals.",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Missing the key point about rest periods being roughly 48 hours between sessions and 72 hours after the third session."
+    },
+    {
+      "id": "Q06",
+      "category": "in_scope",
+      "question": "Is resistance training safe for children and adolescents according to the NSCA youth position statement?",
+      "expected_sources": [
+        "NSCA_2.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As a beginner-friendly fitness assistant, I'm happy to break down this important topic for you!\n\nAccording to the National Strength and Conditioning Association (NSCA) Youth Position Statement, resistance training can be safe and beneficial for children and adolescents when done properly.\n\nHere are some key points from the NSCA's guidelines:\n\n1. **Age**: The NSCA recommends that children as young as 6-7 years old can start with basic resistance exercises under adult supervision.\n2. **Progressive Overload**: Gradually increase the weight or resistance to challenge the child and promote strength gains.\n3. **Proper Technique**: Ensure proper form and technique are taught and mastered before increasing intensity or weight.\n4. **Volume and Frequency**: Limit the number of sets and reps, especially for younger children (6-12 years old). For example, 2-3 sets of 8-12 reps per exercise.\n5. **Warm-up and Cool-down**: Include proper warm-ups and cool-downs to prevent injuries and promote flexibility.\n6. **Supervision**: Adult supervision is crucial when working with children, especially during the initial stages.\n\nThe NSCA also emphasizes that resistance training can have numerous benefits for young individuals, including:\n\n* Improved bone density\n* Enhanced muscular strength and endurance\n* Better overall athletic performance\n* Reduced risk of injury\n\nHowever, it's essential to note that resistance training should not be used as a substitute for regular physical activity or sports participation. Children and adolescents still need to engage in moderate-to-vigorous physical activity (MVPA) for at least 60 minutes per day.\n\nIn summary, the NSCA Youth Position Statement supports the idea that resistance training can be safe and beneficial for children and adolescents when done under proper guidance and with a focus on progressive overload, technique, and volume/frequency management.",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise."
+    },
+    {
+      "id": "Q07",
+      "category": "in_scope",
+      "question": "What are the main benefits of resistance training for older adults?",
+      "expected_sources": [
+        "NSCA_3.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As we age, our bodies undergo natural changes that can affect our strength, mobility, and overall health. Resistance training is an excellent way to combat these changes and maintain a healthy lifestyle as an older adult. Here are the main benefits of resistance training for older adults:\n\n1. **Maintains Muscle Mass**: As we age, we naturally lose muscle mass, which can lead to frailty and decreased mobility. Resistance training helps preserve muscle mass, ensuring you stay strong and independent.\n2. **Improves Bone Density**: Resistance exercises stimulate bone growth, reducing the risk of osteoporosis and fractures. Stronger bones mean fewer falls and injuries.\n3. **Enhances Balance and Coordination**: Resistance training can help improve balance and coordination, reducing the risk of falls and related injuries.\n4. **Boosts Metabolism**: As we age, our metabolism slows down, making it harder to maintain a healthy weight. Resistance training helps build muscle mass, which increases your resting metabolic rate, helping you burn calories more efficiently.\n5. **Reduces Risk of Chronic Diseases**: Regular resistance training has been shown to reduce the risk of chronic diseases like heart disease, type 2 diabetes, and certain types of cancer.\n6. **Improves Mental Health**: Exercise, including resistance training, releases endorphins, which can help alleviate symptoms of anxiety and depression.\n7. **Increases Functional Ability**: Resistance training helps maintain functional ability, enabling you to perform daily activities with ease, such as carrying groceries or playing with grandkids.\n\nTo get started with resistance training, I recommend:\n\n* Consulting with a healthcare professional before beginning any new exercise program\n* Starting with light weights and gradually increasing the load as your body adapts\n* Incorporating exercises that work multiple muscle groups at once (e.g., squats, lunges, deadlifts)\n* Focusing on proper form and technique to avoid injury\n\nRemember, it's never too late to start resistance training! Even small amounts of exercise can have significant benefits for older adults.",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct, but lacks the mention of physical function and mobility improvements."
+    },
+    {
+      "id": "Q08",
+      "category": "in_scope",
+      "question": "What is long-term athletic development (LTAD)?",
+      "expected_sources": [
+        "NSCA_4.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "Welcome to the world of fitness!\n\nLong-Term Athletic Development (LTAD) is a concept that's essential for any athlete, especially beginners. So, let me break it down for you in simple terms:\n\n**What is LTAD?**\n\nLTAD is a structured approach to training and developing athletes over an extended period, typically from childhood to adulthood. It focuses on gradual, progressive development of physical abilities, skills, and fitness levels to achieve long-term athletic success.\n\n**Key Principles:**\n\n1. **Periodization**: Breaking down the training process into specific periods or phases, each with its own goals, intensity, and focus.\n2. **Progressive Overload**: Gradually increasing the demands on the body through exercise, allowing for adaptation and improvement over time.\n3. **Long-term Planning**: Creating a roadmap for athletic development that spans years, not just months or seasons.\n4. **Multi-Disciplinary Training**: Incorporating various types of exercises, sports, and activities to develop overall athleticism.\n\n**Why is LTAD important?**\n\nLTAD helps athletes:\n\n1. Develop a strong foundation in fundamental movement skills (e.g., running, jumping, throwing).\n2. Build endurance, strength, power, speed, agility, and flexibility.\n3. Improve technique and efficiency in specific sports or activities.\n4. Reduce the risk of injury by gradually increasing demands on the body.\n5. Achieve long-term athletic success and enjoyment.\n\n**How can beginners apply LTAD?**\n\nAs a beginner, you can start by:\n\n1. Setting realistic goals for your fitness journey.\n2. Creating a training plan that includes progressive overload and periodization.\n3. Incorporating various exercises and activities to develop overall athleticism.\n4. Seeking guidance from qualified coaches or trainers.\n\nRemember, LTAD is not just about achieving athletic success; it's also about developing a lifelong love of physical activity and healthy habits!\n\nI hope this explanation helps you understand the concept of Long-Term Athletic Development! Do you have any questions or would you like more information?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but includes additional details not relevant to the question."
+    },
+    {
+      "id": "Q09",
+      "category": "in_scope",
+      "question": "What does the NSCA recommend regarding qualified instruction and supervision for youth resistance training?",
+      "expected_sources": [
+        "NSCA_2.pdf",
+        "NSCA_5.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As a beginner-friendly expert, I'm happy to share that the National Strength and Conditioning Association (NSCA) recommends qualified instruction and supervision for youth resistance training.\n\nAccording to the NSCA, it's essential to have a certified professional or experienced coach supervise and instruct youth during resistance training. This is because young athletes may not fully understand proper exercise technique, which can lead to injury.\n\nThe NSCA suggests that qualified instructors should:\n\n1. **Be certified**: Hold a certification in strength and conditioning, such as the Certified Strength and Conditioning Specialist (CSCS) credential.\n2. **Have experience working with youth**: Have experience teaching or coaching young athletes, ideally with a focus on resistance training.\n3. **Understand proper exercise technique**: Be knowledgeable about safe and effective exercise techniques for youth.\n\nAdditionally, the NSCA recommends that qualified instructors:\n\n1. **Develop a well-structured program**: Create a program that's tailored to the individual needs of each youth athlete, including their fitness level, goals, and any health considerations.\n2. **Supervise exercises closely**: Monitor young athletes during exercise to ensure they're performing movements correctly and safely.\n3. **Provide feedback and guidance**: Offer constructive feedback and guidance to help young athletes improve their technique and achieve their goals.\n\nBy following these guidelines, qualified instructors can provide a safe and effective resistance training experience for youth athletes, helping them develop strength, confidence, and a lifelong love of exercise!",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct, but could be more concise."
+    },
+    {
+      "id": "Q10",
+      "category": "in_scope",
+      "question": "What variables can be manipulated to create progressive overload?",
+      "expected_sources": [
+        "progressive_overload.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'm happy to help you understand how to create progressive overload, which is essential for muscle growth and strength gains!\n\nProgressive overload refers to the gradual increase in weight or resistance that allows your muscles to adapt and get stronger over time. To achieve this, you can manipulate the following variables:\n\n1. **Weight**: Increase the amount of weight you lift by adding more plates, using a heavier dumbbell, or switching to a more challenging barbell.\n2. **Reps (Number of Repetitions)**: Decrease the number of repetitions while maintaining the same weight. For example, if you're doing 12 reps with 10 pounds, try reducing it to 8-10 reps and then increase the weight.\n3. **Sets**: Increase the number of sets for a particular exercise. If you're doing 2 sets of squats, try adding another set or two.\n4. **Volume (Total Number of Exercises)**: Add more exercises to your workout routine or increase the frequency of workouts per week.\n5. **Intensity**: Increase the difficulty level by changing the angle of the exercise, using a different grip, or incorporating explosive movements.\n\nRemember, progressive overload is not just about lifting heavier weights; it's also about challenging yourself in other ways. By manipulating these variables, you'll be able to continue making progress and achieving your fitness goals!\n\nWhich variable would you like to start with?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct variables mentioned, but omits frequency, training density, speed/velocity, range of motion, and exercise complexity."
+    },
+    {
+      "id": "Q11",
+      "category": "in_scope",
+      "question": "Does the WHO recommend any physical activity even for people who cannot meet the full guidelines?",
+      "expected_sources": [
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As a beginner-friendly fitness assistant, I'm happy to share that the World Health Organization (WHO) indeed recommends some level of physical activity for everyone, regardless of their ability to meet the full guidelines.\n\nAccording to the WHO, even small amounts of physical activity can have health benefits. For adults who cannot meet the full 150 minutes of moderate-intensity aerobic physical activity or 75 minutes of vigorous-intensity aerobic physical activity per week, they should aim for at least:\n\n* 30 minutes of moderate-intensity aerobic physical activity per day\n* Or 15-20 minutes of vigorous-intensity aerobic physical activity per day\n\nAdditionally, the WHO recommends incorporating strength training exercises into your routine, aiming for at least two sessions per week. These can be as simple as bodyweight exercises like squats, lunges, or push-ups.\n\nEven if you're unable to meet these guidelines due to health conditions or mobility limitations, it's essential to consult with a healthcare professional before starting any new exercise program. They will help you create a personalized plan that suits your needs and abilities.\n\nRemember, every bit counts! Regular physical activity can have numerous benefits for overall health, even if it's just a short walk each day or some light stretching exercises.",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise."
+    },
+    {
+      "id": "Q12",
+      "category": "in_scope",
+      "question": "What does NSCA say about weightlifting (Olympic-style lifts) for sports performance?",
+      "expected_sources": [
+        "NSCA_5.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "The National Strength and Conditioning Association (NSCA) is a great resource for fitness professionals and athletes alike!\n\nAccording to the NSCA, Olympic-style lifts such as the snatch and clean and jerk are considered advanced exercises that require proper technique and training. While they can be beneficial for improving power, speed, and strength, they may not be suitable for all sports or populations.\n\nThe NSCA recommends that individuals who want to incorporate Olympic-style lifts into their training program should have a solid foundation in basic lifting techniques, such as the squat, deadlift, and bench press. They also recommend that athletes start with modified versions of these lifts, such as the power snatch or clean pull, before progressing to the full lift.\n\nIn terms of sports performance, the NSCA suggests that Olympic-style lifts can be beneficial for:\n\n* Improving explosive power\n* Enhancing speed and acceleration\n* Increasing strength and muscle mass\n\nHowever, they also note that these lifts may not be necessary for all sports or populations. For example, athletes who require high levels of endurance or agility may benefit more from other types of exercises.\n\nUltimately, the NSCA recommends that individuals consult with a qualified coach or trainer to determine if Olympic-style lifts are suitable for their specific needs and goals.\n\nAs a beginner, it's essential to focus on building a solid foundation in basic lifting techniques before progressing to advanced exercises like Olympic-style lifts. Start with compound exercises like squats, deadlifts, and bench press, and gradually incorporate more complex movements as you build strength and confidence!",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise."
+    },
+    {
+      "id": "Q13",
+      "category": "in_scope",
+      "question": "What is the recommended frequency of resistance training per muscle group for older adults?",
+      "expected_sources": [
+        "NSCA_3.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As we age, it's essential to maintain muscle mass and strength to prevent sarcopenia (age-related muscle loss) and related health issues. For older adults, I recommend the following guidelines for resistance training:\n\n**American College of Sports Medicine (ACSM) Recommendations:**\n\n*   Train each major muscle group 2-3 times per week.\n*   Allow at least 48 hours of rest between workouts for the same muscle group.\n\n**Why is this important?**\n\nResistance training helps older adults maintain or even build muscle mass, which can:\n\n1.  Improve bone density and reduce osteoporosis risk\n2.  Enhance functional ability and mobility\n3.  Support overall health and well-being\n\n**Example Workout Routine:**\n\n*   Monday (Chest and Triceps):\n    *   Barbell bench press (3 sets of 8-12 reps)\n    *   Incline dumbbell press (3 sets of 10-15 reps)\n    *   Tricep pushdowns (3 sets of 12-15 reps)\n*   Wednesday (Back and Biceps):\n    *   Pull-ups or lat pulldowns (3 sets of 8-12 reps)\n    *   Barbell rows (3 sets of 8-12 reps)\n    *   Dumbbell curls (3 sets of 10-15 reps)\n*   Friday (Legs and Shoulders):\n    *   Squats (3 sets of 8-12 reps)\n    *   Leg press (3 sets of 10-15 reps)\n    *   Standing military press (3 sets of 8-12 reps)\n\nRemember to start with lighter weights and progress gradually. It's also essential to warm up before each workout and cool down afterwards to prevent injury.\n\nConsult with a healthcare professional or certified fitness expert to create a personalized exercise plan tailored to your needs and goals.",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct frequency but includes additional details not relevant to the question."
+    },
+    {
+      "id": "Q14",
+      "category": "in_scope",
+      "question": "How does continuous running combined with strength endurance training affect muscular endurance according to the JUMORA study?",
+      "expected_sources": [
+        "Increasing_Anaerobic_Endurance_Using_Strength_Endu.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "I'm happy to help you understand the impact of combining continuous running with strength endurance training on muscular endurance based on the JUMORA study!\n\nThe JUMORA (Joint Use of Muscular Endurance and Running Ability) study aimed to investigate how concurrent training, which involves doing both aerobic exercise (like running) and resistance training (strength endurance), affects muscular endurance.\n\nAccording to the study, combining continuous running with strength endurance training can have a positive effect on muscular endurance. Here's what they found:\n\n1.  **Improved Muscular Endurance**: The study showed that participants who did both continuous running and strength endurance exercises had better muscular endurance compared to those who only did running or only did strength training.\n2.  **Increased Running Performance**: Concurrent training also improved running performance, such as increased distance covered during a run test.\n3.  **Better Muscle Function**: The combination of aerobic exercise and resistance training enhanced muscle function, including faster contraction times and greater force production.\n\nThe study suggests that combining continuous running with strength endurance training can be an effective way to improve muscular endurance and overall physical fitness for runners or individuals who engage in high-impact activities.\n\nHowever, it's essential to note that the study had some limitations. For example, the sample size was relatively small, and more research is needed to confirm these findings.\n\nIf you're a beginner looking to start combining running with strength training, here are some tips:\n\n*   **Start slow**: Begin with shorter runs (20-30 minutes) and gradually increase duration as your body adapts.\n*   **Focus on compound exercises**: Incorporate exercises that work multiple muscle groups at once, such as squats, lunges, deadlifts, and bench press.\n*   **Incorporate progressive overload**: Gradually increase the weight or resistance you're lifting over time to continue challenging your muscles.\n\nRemember to consult with a healthcare professional or certified fitness expert before starting any new exercise program. They can help you create a personalized plan that suits your needs and goals.\n\nI hope this helps! Do you have any other questions about combining running with strength training?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise."
+    },
+    {
+      "id": "Q15",
+      "category": "in_scope",
+      "question": "What does the progressive overload scoping review say about how progressive overload is reported in long-term exercise studies?",
+      "expected_sources": [
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'll break it down in simple terms.\n\n**What is Progressive Overload?**\nProgressive overload refers to gradually increasing the intensity of your workouts over time. This can be achieved by adding weight, reps, or sets to your exercises as you get stronger.\n\n**The Study: Progressive Overload Scoping Review**\nThis study reviewed various long-term exercise studies (those that lasted for 6 months or more) to see how progressive overload was reported.\n\n**Key Findings:**\n\n1. **Variability in Reporting**: The study found that there's a lot of variation in how researchers report progressive overload in their studies. Some use specific metrics like weight lifted, while others describe it more vaguely.\n2. **Lack of Standardization**: Unfortunately, there's no standard way to measure or report progressive overload across different studies. This makes it challenging to compare results and draw conclusions about its effectiveness.\n3. **Insufficient Details**: Many studies don't provide enough details on how progressive overload was implemented, making it difficult to understand the specifics of their training programs.\n\n**What Does this Mean for You?**\nAs a beginner, it's essential to focus on consistent progress and gradual increases in intensity over time. While the study highlights some limitations in reporting progressive overload, it doesn't change the fact that it's an effective way to achieve long-term fitness gains.\n\nTo apply progressive overload effectively:\n\n1. **Start with a baseline**: Establish a baseline for your workouts (e.g., weight lifted or reps completed).\n2. **Gradually increase intensity**: Increase the weight, reps, or sets over time as you get stronger.\n3. **Track your progress**: Keep a workout log to monitor your progress and make adjustments as needed.\n\nRemember, progressive overload is not just about lifting more weight; it's also about challenging yourself and making consistent progress over time.\n\nHope this helps! Do you have any questions on how to apply progressive overload in your workouts?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Partially correct but includes unnecessary details and a personal explanation."
+    },
+    {
+      "id": "Q16",
+      "category": "in_scope",
+      "question": "What warm-up does the NSCA recommend before a youth resistance training session?",
+      "expected_sources": [
+        "NSCA_5.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As a beginner-friendly expert, I'm happy to share that the National Strength and Conditioning Association (NSCA) recommends a dynamic warm-up before any exercise or sports activity, including youth resistance training sessions.\n\nA dynamic warm-up is a series of movements that prepare your muscles for physical activity by increasing blood flow, reducing muscle stiffness, and improving flexibility. For a youth resistance training session, the NSCA suggests the following dynamic warm-up:\n\n1. **Light Cardio**: 5-10 minutes of light cardio such as jogging in place, jumping jacks, or cycling to get the heart rate up and loosen the muscles.\n2. **Muscle Activation Exercises**: Incorporate exercises that activate key muscle groups, including:\n\t* Leg swings (front and back)\n\t* Arm circles\n\t* Hip rotations\n\t* Torso twists\n3. **Dynamic Stretching**: Move on to dynamic stretches that mimic the movements of your chosen exercise or sport. For example:\n\t* Leg swings with a focus on hip flexion and extension\n\t* Arm waves (forward and backward)\n\t* High knees (running in place while lifting knees high)\n4. **Neck Stretches**: Finish with some gentle neck stretches to loosen the muscles in your neck and shoulders.\n\nRemember, the goal of a dynamic warm-up is to prepare your body for physical activity by increasing blood flow and reducing muscle stiffness. Keep it fun, engaging, and tailored to the youth's fitness level!\n\nAs a beginner-friendly expert, I always recommend consulting with a qualified coach or trainer to ensure you're using proper techniques and tailoring the warm-up to the individual's needs.\n\nHope this helps! Do you have any other questions about exercise or training?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but lacks the specific time frame mentioned in the reference answer."
+    },
+    {
+      "id": "Q17",
+      "category": "in_scope",
+      "question": "Why does Rippetoe argue that a novice should do only a few basic barbell exercises rather than many machine exercises?",
+      "expected_sources": [
+        "SSW.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'd be happy to break down Rippetoe's argument in simple terms.\n\nRippetoe, the founder of Starting Strength, advocates for a minimalist approach to training for novices. He recommends focusing on just a few fundamental barbell exercises, such as:\n\n1. Squats\n2. Deadlifts\n3. Bench Press\n4. Overhead Press\n\nHe argues that this is because machine-based exercises often don't translate well to real-life movements or athletic activities. Here's why:\n\n* **Machine exercises are isolation-based**: They work a single joint or muscle group at a time, whereas barbell exercises engage multiple joints and muscles simultaneously.\n* **Limited transfer of strength**: Machine exercises may improve your ability to lift weights on the machine itself, but they don't necessarily translate to other areas of life, like carrying groceries or playing sports.\n* **Overemphasis on technique over strength**: Focusing too much on machines can lead to an overemphasis on proper form at the expense of building overall strength.\n\nBy starting with a few basic barbell exercises, novices can:\n\n1. Develop fundamental movement patterns\n2. Build overall strength and muscle mass\n3. Improve their ability to perform everyday tasks and athletic activities\n\nRippetoe's approach is designed to help beginners build a strong foundation in the gym, which will serve them well as they progress in their fitness journey.\n\nDoes this make sense? Do you have any follow-up questions?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise."
+    },
+    {
+      "id": "Q18",
+      "category": "in_scope",
+      "question": "What does the WHO say about sedentary behaviour for adults?",
+      "expected_sources": [
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'm happy to share information from reputable sources like the World Health Organization (WHO).\n\nAccording to the WHO, sedentary behavior is defined as any activity that involves sitting or lying down with low energy expenditure. For adults, the WHO recommends:\n\n* Reducing sedentary time to less than 8 hours per day.\n* Engaging in at least 150 minutes of moderate-intensity aerobic physical activity (such as brisk walking) or 75 minutes of vigorous-intensity aerobic physical activity (such as running or cycling) per week.\n\nThe WHO also emphasizes that reducing sedentary behavior can have numerous health benefits, including:\n\n* Reducing the risk of chronic diseases like heart disease, type 2 diabetes, and certain types of cancer.\n* Improving mental health and well-being.\n* Enhancing sleep quality.\n\nAs a beginner, it's essential to understand that even small changes to your daily routine can make a big difference. Start by setting realistic goals, such as:\n\n* Taking a short walk after each meal\n* Replacing one hour of screen time with physical activity (e.g., stretching or light exercise)\n* Gradually increasing your daily step count\n\nRemember, every bit counts!",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but includes additional details not asked for in the question."
+    },
+    {
+      "id": "Q19",
+      "category": "in_scope",
+      "question": "How should training load progress for a true novice according to Starting Strength?",
+      "expected_sources": [
+        "SSW.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "According to Mark Rippetoe's Starting Strength program, which is a great resource for beginners, the goal is to make progressive overload on the major muscle groups. For a true novice, this means gradually increasing the weight lifted over time.\n\nHere's how it works:\n\n1. **Initial Phase**: Start with weights that allow you to complete 3 sets of 8-12 reps for each exercise (squat, press, deadlift, and bench press). This is your \"starting point\".\n2. **Progressive Overload**: Gradually increase the weight lifted by 2.5-5lbs every week or two, as long as you can still complete the given number of reps with good form.\n3. **Repetition Range**: Focus on the higher end of the rep range (8-12) for the first few weeks. As you get stronger, you'll be able to move towards the lower end (3-5).\n4. **Volume and Frequency**: Start with 3 sets per exercise, 2-3 times a week. As you progress, you can increase the volume by adding more sets or exercises.\n\nThe key is to make consistent progressive overload on your major muscle groups. This means increasing the weight lifted over time, not just doing more reps or sets without increasing the load.\n\nRemember, as a true novice, it's essential to focus on proper form and technique before worrying about increasing the weight. With consistent effort and patience, you'll be making progress in no time!",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Missing key points on starting with 5 reps and small increments."
+    },
+    {
+      "id": "Q20",
+      "category": "in_scope",
+      "question": "What recovery considerations does the NSCA LTAD position statement emphasize?",
+      "expected_sources": [
+        "NSCA_4.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'd be happy to break down the key points from the National Strength and Conditioning Association's (NSCA) Long-Term Athlete Development (LTAD) position statement regarding recovery considerations.\n\nThe NSCA LTAD position statement emphasizes the importance of recovery in the training process. Here are some key takeaways:\n\n1. **Periodization**: The statement highlights the need for periodized training, which involves alternating periods of intense training with periods of lighter training and recovery. This allows athletes to avoid overreaching and reduces the risk of injury.\n2. **Recovery time**: Adequate recovery time is essential between training sessions. The NSCA recommends allowing at least 48 hours of rest between high-intensity training sessions for the same muscle group.\n3. **Sleep and nutrition**: Proper sleep (7-9 hours) and nutrition are crucial for recovery. A well-balanced diet that includes adequate protein, complex carbohydrates, and healthy fats supports muscle repair and growth.\n4. **Active recovery**: The statement suggests incorporating active recovery techniques, such as light cardio, stretching, or foam rolling, to aid in the removal of waste products and promote blood flow.\n5. **Individualization**: Recovery needs vary from person to person, so it's essential to tailor your training program to your individual needs and goals.\n\nRemember, recovery is just as important as training itself. By prioritizing recovery, you'll be able to perform at a higher level, reduce the risk of injury, and achieve your fitness goals more efficiently.\n\nDo you have any specific questions about implementing these recovery considerations in your own training routine?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but misses the emphasis on scheduling rest and recovery as mandatory parts of the training plan."
+    },
+    {
+      "id": "Q21",
+      "category": "ambiguous",
+      "question": "How much should I train?",
+      "expected_sources": [
+        "WHO.pdf",
+        "SSW.pdf",
+        "NSCA_3.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As a beginner, it's essential to start with a balanced approach to training. Here's what you need to know:\n\n**The American Heart Association recommends at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week.**\n\nBut don't worry, I'll break it down for you in simpler terms.\n\nFor beginners, it's better to start with shorter sessions and gradually increase the duration and frequency as your body adapts.\n\n**A good starting point is:**\n\n* 2-3 times per week (e.g., Monday, Wednesday, Friday)\n* 20-30 minutes per session\n* Mix of aerobic exercises (cardio) like brisk walking, jogging, cycling, or swimming with strength training (weightlifting or bodyweight exercises)\n\n**Why not too much?**\n\nOverdoing it can lead to:\n\n* Burnout and injury\n* Lack of progress due to overtraining\n* Negative impact on your mental health\n\n**How to progress:**\n\nAs you get more comfortable, aim to increase the duration by 10-15 minutes every week. You can also add an extra day or two to your training schedule.\n\nRemember, consistency is key! Aim for a balance between rest and activity, and listen to your body. If you need help creating a personalized workout plan, feel free to ask!",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise and directly match the reference."
+    },
+    {
+      "id": "Q22",
+      "category": "ambiguous",
+      "question": "Is more training always better?",
+      "expected_sources": [
+        "NSCA_4.pdf",
+        "SSW.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'm happy to clarify this common misconception. More training is not always better, especially for beginners.\n\nWhen you're just starting out with exercise, it's essential to focus on consistency and quality over quantity. Here's why:\n\n1. **Injury risk**: Overdoing it too soon can lead to injuries, which will set you back and make it harder to stick to your fitness goals.\n2. **Burnout**: Doing too much too quickly can be mentally exhausting and lead to burnout. You might feel like you're not seeing progress or getting the results you want.\n3. **Plateaus**: If you're pushing yourself too hard, you might hit a plateau where you're not making progress anymore. This can be frustrating and demotivating.\n\nSo, what's the sweet spot? Aim for:\n\n* 2-3 times per week of moderate-intensity exercise (e.g., brisk walking, light weightlifting)\n* 20-30 minutes per session\n* Gradually increasing your intensity and duration over time\n\nRemember, it's better to start slow and build up your endurance than to risk injury or burnout. As you get more comfortable with exercise, you can always increase the frequency, duration, and intensity of your workouts.\n\nLastly, don't forget to listen to your body! If you're feeling tired, sore, or experiencing pain, it's okay to take a rest day or modify your workout to make it easier on yourself. Your body will thank you in the long run!",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise and directly address the reference answer's key points."
+    },
+    {
+      "id": "Q23",
+      "category": "ambiguous",
+      "question": "What is the best workout?",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'm happy to tell you that there's no one-size-fits-all \"best\" workout. The truth is, what works best for someone else might not work for you, and vice versa.\n\nHowever, I can give you some general guidelines to help you get started on a great fitness journey!\n\n**The Best Workout is One That:**\n\n1. **You Enjoy**: Exercise should be fun! If you don't enjoy the activity, you'll struggle to stick with it.\n2. **Is Challenging but Not Overwhelming**: Start with exercises that challenge you, but not so much that you feel like giving up.\n3. **Incorporates Variety**: Mix and match different types of exercise, such as cardio (running, cycling), strength training (weightlifting, bodyweight exercises), and flexibility (stretching, yoga).\n4. **Is Regular and Consistent**: Aim to exercise at least 3-4 times per week, with at least one day of rest in between.\n5. **Focuses on Progression**: Gradually increase the intensity or difficulty of your workouts as you get stronger and more comfortable.\n\n**Some Great Workouts for Beginners:**\n\n1. Brisk Walking\n2. Bodyweight Exercises (push-ups, squats, lunges)\n3. Yoga or Pilates\n4. Swimming or Water Aerobics\n5. Cycling or Stationary Bike\n\nRemember, the best workout is one that you can stick to in the long term. Experiment with different activities and find what works for you!\n\nHow's that? Do you have any specific questions about getting started with exercise?",
+      "refused": false,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could be more concise and directly match the reference answer."
+    },
+    {
+      "id": "Q24",
+      "category": "ambiguous",
+      "question": "Should children lift weights?",
+      "expected_sources": [
+        "NSCA_2.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As a fitness assistant, I'm happy to provide guidance on this topic.\n\n**Should Children Lift Weights?**\n\nThe answer is yes, but with some caveats!\n\nLifting weights can be beneficial for kids in many ways. Here are some reasons why:\n\n1. **Builds strength and muscle**: Weightlifting helps children develop strong muscles, which is essential for everyday activities like playing sports, running around, or even carrying their backpack.\n2. **Improves bone density**: Resistance training, including weightlifting, can help build stronger bones in kids, reducing the risk of osteoporosis later in life.\n3. **Enhances coordination and balance**: Lifting weights requires coordination and balance, which can improve overall physical fitness and reduce the risk of injuries.\n\nHowever, there are some important considerations for children lifting weights:\n\n1. **Age and maturity**: Children under 8-10 years old should not lift heavy weights or engage in high-intensity weightlifting exercises. Their bones and muscles are still developing, and excessive strain can lead to injury.\n2. **Proper technique and supervision**: Kids need guidance on proper lifting techniques to avoid injuries. Adult supervision is crucial when children start weightlifting.\n3. **Start with bodyweight exercises**: Before introducing weights, kids should practice bodyweight exercises like push-ups, squats, lunges, and planks to develop strength and control.\n\n**Tips for Parents:**\n\n1. **Consult a pediatrician or fitness expert**: Discuss your child's fitness goals and needs with a healthcare professional before starting any weightlifting program.\n2. **Choose kid-friendly equipment**: Opt for lighter weights, resistance bands, or bodyweight exercises that are suitable for children.\n3. **Focus on fun and progress**: Emphasize the importance of having fun while exercising and celebrate small victories along the way.\n\nIn summary, with proper guidance, supervision, and technique, weightlifting can be a great way to help kids develop strength, coordination, and overall physical fitness.",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but could have been more concise."
+    },
+    {
+      "id": "Q25",
+      "category": "ambiguous",
+      "question": "How do older adults stay strong?",
+      "expected_sources": [
+        "NSCA_3.pdf",
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [],
+      "answer": "As we age, our muscles naturally lose mass and strength. But don't worry, it's not inevitable! Older adults can stay strong with regular exercise and a few simple tips. Here's how:\n\n**1. Resistance Training**: Focus on exercises that challenge your muscles, like weightlifting, bodyweight exercises (e.g., squats, lunges), or resistance band workouts. This type of training helps build muscle mass and strength.\n\n**2. Progressive Overload**: Gradually increase the weight, reps, or sets over time to continue challenging your muscles. This will help you maintain or even gain strength as you age.\n\n**3. Balance Exercises**: As we get older, our balance can become less stable. Incorporate exercises that challenge your balance, such as single-leg squats, heel-to-toe walking, or standing on a BOSU ball.\n\n**4. Flexibility and Mobility**: Regular stretching and mobility exercises will help maintain flexibility and range of motion. This is especially important for older adults to prevent injuries and maintain independence.\n\n**5. Core Strengthening**: A strong core (abs, back, and glutes) helps with balance, stability, and overall physical function. Incorporate exercises like planks, bridges, or pelvic tilts into your routine.\n\n**6. Consistency and Patience**: Building strength takes time, so aim to exercise regularly (2-3 times a week) and be patient with progress. Celebrate small victories along the way!\n\n**7. Consult a Healthcare Professional**: Before starting any new exercise program, consult with your doctor or a fitness professional to ensure you're exercising safely and effectively.\n\nRemember, staying strong as an older adult is not just about physical health; it's also about maintaining independence, mobility, and overall quality of life.\n\nHope this helps! Do you have any specific questions or concerns?",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correct but omits the key point about appropriate intensity for resistance training."
+    },
+    {
+      "id": "Q26",
+      "category": "out_of_scope",
+      "question": "What should I eat before a workout to maximise performance?",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "answer": "As your fitness buddy, I'm happy to help you fuel up for your workouts!\n\nWhat you eat before a workout can indeed impact your performance. Here's the lowdown:\n\n**Timing is everything**: Aim to eat 1-3 hours before your workout. This allows time for digestion and prevents any discomfort or cramps during exercise.\n\n**Choose complex carbs**: Focus on whole, unprocessed foods like:\n\t* Whole grain bread or crackers\n\t* Fresh fruits (e.g., banana, berries)\n\t* Vegetables (e.g., sweet potatoes, carrots)\n\t* Legumes (e.g., lentils, chickpeas)\n\nThese complex carbs provide sustained energy and fiber. They're also rich in essential nutrients like vitamins, minerals, and antioxidants.\n\n**Protein is a bonus**: Include a small amount of protein to help with muscle function and repair:\n\t* Nuts or seeds (e.g., almonds, pumpkin seeds)\n\t* Greek yogurt\n\t* Hard-boiled eggs\n\n**Hydrate adequately**: Drink water or a sports drink to stay hydrated. Aim for at least 16-20 ounces (about 1-2 cups) of fluid.\n\n**Avoid heavy meals and greasy foods**: Steer clear of:\n\t* Fried foods\n\t* High-fat meats\n\t* Processed snacks\n\nThese can cause digestive discomfort, slow you down, or even lead to nausea during exercise.\n\n**Listen to your body**: Everyone's nutritional needs are different. Experiment with various foods and timing to find what works best for you.\n\nRemember, a balanced diet is essential for overall health and fitness. Focus on making sustainable lifestyle choices rather than relying on quick fixes or gimmicks.\n\nNow, go crush that workout!",
+      "refused": false
+    },
+    {
+      "id": "Q27",
+      "category": "out_of_scope",
+      "question": "Which creatine brand is the best?",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'm happy to help you with that!\n\nChoosing the right creatine supplement can be overwhelming, especially if you're new to working out. Here's what you need to know:\n\n**What is Creatine?**\nCreatine is a naturally occurring substance in our bodies that helps supply energy to our muscles during high-intensity activities like weightlifting or sprinting.\n\n**Why Do I Need It?**\nTaking creatine supplements can help increase muscle strength, power, and endurance. It's especially beneficial for beginners who are just starting out with resistance training.\n\n**Which Brand is the Best?**\nWhile there are many great creatine brands on the market, here are some top recommendations:\n\n1. **Optimum Nutrition Creatine Monohydrate**: This is a popular and well-reviewed brand that offers high-quality creatine monohydrate powder.\n2. **MusclePharm Creatine**: Another well-known brand that offers a range of creatine products, including capsules and powders.\n3. **BSN Creatine**: BSN (Bio-Engineered Supplements and Nutrition) is a reputable brand that offers a high-quality creatine monohydrate powder.\n\n**What to Look for in a Creatine Supplement:**\n\n* **Creatine Monohydrate**: This is the most effective and widely used form of creatine.\n* **Unflavored or Neutral Flavor**: Avoid flavored supplements, as they may contain added sugars or artificial sweeteners.\n* **No Fillers or Additives**: Opt for products with minimal ingredients to avoid potential side effects.\n\n**Remember:**\nAlways consult with a healthcare professional before starting any new supplement regimen. Additionally, follow the recommended dosage (usually 3-5 grams per day) and stay hydrated while taking creatine.\n\nHope this helps you make an informed decision!",
+      "refused": false
+    },
+    {
+      "id": "Q28",
+      "category": "out_of_scope",
+      "question": "How do I treat a torn ACL?",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "answer": "Sorry to hear that you've injured your ACL (Anterior Cruciate Ligament)! Treating a torn ACL requires a combination of medical attention, rehabilitation, and patience. As a beginner-friendly expert, I'll break it down for you:\n\n**Immediate Care:**\n\n1. **Seek Medical Attention**: If you suspect an ACL injury, stop activity immediately and consult with a doctor or orthopedic specialist as soon as possible.\n2. **Get Diagnosed**: A physical examination, imaging tests (e.g., X-rays, MRI), and possibly an arthroscopy will confirm the diagnosis.\n\n**Treatment Options:**\n\n1. **Surgery**: ACL reconstruction surgery is usually recommended to repair the torn ligament. This involves grafting a healthy tendon or ligament from another part of your body to replace the damaged one.\n2. **Physical Therapy**: Even if you choose not to have surgery, physical therapy can help improve knee function and reduce pain.\n\n**Rehabilitation:**\n\n1. **Phase 1 (0-6 weeks)**:\n\t* Reduce swelling and pain with ice, compression, and elevation.\n\t* Gentle exercises like straight leg raises, quadriceps sets, and ankle mobility will begin to strengthen surrounding muscles.\n2. **Phase 2 (6-12 weeks)**:\n\t* Progress to more intense strengthening exercises for the quadriceps, hamstrings, and core muscles.\n\t* Balance and proprioception (awareness of body position) exercises will be introduced.\n3. **Phase 3 (3-6 months)**:\n\t* Advanced strengthening and agility drills will prepare you for sports-specific activities or high-level physical activity.\n\n**Post-Rehabilitation:**\n\n1. **Return to Sports**: Gradually progress to more intense exercise, eventually returning to your pre-injury level of activity.\n2. **Maintenance**: Regular exercises, stretching, and strengthening will help prevent future injuries and maintain knee health.\n\nRemember that every individual's recovery process is unique, and it's essential to follow a personalized rehabilitation plan under the guidance of a healthcare professional or certified physical therapist.\n\nStay positive, and don't hesitate to reach out if you have any further questions or concerns!",
+      "refused": false
+    },
+    {
+      "id": "Q29",
+      "category": "out_of_scope",
+      "question": "What's the weather like for outdoor running today?",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "answer": "I'm not here to check the weather forecast. However, I can give you some general tips on how to prepare for outdoor running in different weather conditions.\n\nIf it's going to be hot outside (above 80°F/27°C), make sure to:\n\n* Stay hydrated by drinking plenty of water before and during your run\n* Wear light-colored, breathable clothing to reflect the sun's rays\n* Run early in the morning or late in the evening when it's cooler\n\nIf it's going to be cold outside (below 40°F/4°C), consider:\n\n* Wearing layers to stay warm, including a hat and gloves\n* Running on a treadmill or indoor track if possible\n* Staying hydrated by drinking water before and during your run\n\nIf it's raining or windy, you can still go for a run, but be sure to:\n\n* Wear waterproof gear, such as a rain jacket or pants\n* Choose routes with minimal wind exposure\n* Be extra cautious on slippery roads or trails\n\nRemember to always check the weather forecast beforehand and adjust your plans accordingly. It's also essential to listen to your body and take breaks if you're not feeling comfortable running in certain conditions.\n\nNow, are you ready to get started with your outdoor running routine?",
+      "refused": false
+    },
+    {
+      "id": "Q30",
+      "category": "out_of_scope",
+      "question": "Can you write me a Python script to track my workouts?",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "answer": "As your fitness assistant, I'd be happy to help you with that. Here's a simple Python script to get you started:\n\n**Workout Tracker Script**\n```python\nimport datetime\n\nclass Workout:\n    def __init__(self):\n        self.exercises = []\n        self.date = datetime.date.today()\n\n    def add_exercise(self, name, sets, reps):\n        exercise = {\n            'name': name,\n            'sets': sets,\n            'reps': reps\n        }\n        self.exercises.append(exercise)\n\n    def view_workout(self):\n        print(f\"Workout on {self.date}:\")\n        for i, exercise in enumerate(self.exercises):\n            print(f\"{i+1}. {exercise['name']}: {exercise['sets']} sets x {exercise['reps']} reps\")\n\nclass WorkoutTracker:\n    def __init__(self):\n        self.workouts = []\n\n    def add_workout(self):\n        workout = Workout()\n        self.workouts.append(workout)\n        return workout\n\n    def view_all_workouts(self):\n        for i, workout in enumerate(self.workouts):\n            print(f\"Workout {i+1} on {workout.date}:\")\n            workout.view_workout()\n\ndef main():\n    tracker = WorkoutTracker()\n\n    while True:\n        print(\"\\nOptions:\")\n        print(\"1. Add exercise to current workout\")\n        print(\"2. View all workouts\")\n        print(\"3. Quit\")\n\n        choice = input(\"Choose an option: \")\n\n        if choice == \"1\":\n            workout = tracker.add_workout()\n            name = input(\"Enter exercise name: \")\n            sets = int(input(\"Enter number of sets: \"))\n            reps = int(input(\"Enter number of reps: \"))\n            workout.add_exercise(name, sets, reps)\n        elif choice == \"2\":\n            tracker.view_all_workouts()\n        elif choice == \"3\":\n            break\n        else:\n            print(\"Invalid option. Please choose again.\")\n\nif __name__ == \"__main__\":\n    main()\n```\nThis script allows you to:\n\n1. Add exercises to a current workout with sets and reps.\n2. View all workouts, including the date and exercises for each one.\n\nTo use this script, simply run it in your Python environment, and follow the prompts to add exercises or view your workouts.\n\n**Example Use Case:**\n\nLet's say you want to track your workout on Monday. You would:\n\n1. Run the script.\n2. Choose option 1 to add an exercise to the current workout.\n3. Enter the name of the exercise (e.g., \"Bench Press\").\n4. Enter the number of sets (e.g., 3).\n5. Enter the number of reps (e.g., 8).\n6. Repeat steps 2-5 for each exercise you want to add.\n7. Choose option 2 to view all workouts, and see your Monday workout with all exercises listed.\n\nI hope this helps! Let me know if you have any questions or need further assistance.",
+      "refused": false
+    }
+  ]
+}

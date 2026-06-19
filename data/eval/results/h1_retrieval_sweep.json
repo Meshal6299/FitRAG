@@ -1,0 +1,70 @@
+{
+  "experiment": "H1_retrieval_strategy",
+  "metric_basis": "retrieval_only over 30-Q gold set",
+  "results": [
+    {
+      "name": "sim_k3",
+      "recall_at_k_in_scope": 0.9,
+      "recall_at_k": 0.8472222222222222,
+      "precision_at_k": 0.6805555555555555,
+      "mrr": 0.7777777777777778,
+      "hit_rate": 0.9166666666666666
+    },
+    {
+      "name": "sim_k5",
+      "recall_at_k_in_scope": 0.925,
+      "recall_at_k": 0.8819444444444445,
+      "precision_at_k": 0.6416666666666667,
+      "mrr": 0.7777777777777778,
+      "hit_rate": 0.9166666666666666
+    },
+    {
+      "name": "sim_k10",
+      "recall_at_k_in_scope": 0.925,
+      "recall_at_k": 0.9166666666666666,
+      "precision_at_k": 0.625,
+      "mrr": 0.7819444444444444,
+      "hit_rate": 0.9583333333333334
+    },
+    {
+      "name": "mmr_k3",
+      "recall_at_k_in_scope": 0.825,
+      "recall_at_k": 0.7847222222222222,
+      "precision_at_k": 0.5833333333333334,
+      "mrr": 0.75,
+      "hit_rate": 0.8333333333333334
+    },
+    {
+      "name": "mmr_k5",
+      "recall_at_k_in_scope": 0.925,
+      "recall_at_k": 0.8680555555555555,
+      "precision_at_k": 0.5750000000000001,
+      "mrr": 0.7708333333333334,
+      "hit_rate": 0.9166666666666666
+    },
+    {
+      "name": "mmr_k10",
+      "recall_at_k_in_scope": 0.925,
+      "recall_at_k": 0.9027777777777778,
+      "precision_at_k": 0.5625,
+      "mrr": 0.7760416666666666,
+      "hit_rate": 0.9583333333333334
+    },
+    {
+      "name": "mmr_k5_lam0.2",
+      "recall_at_k_in_scope": 0.875,
+      "recall_at_k": 0.8263888888888888,
+      "precision_at_k": 0.5333333333333333,
+      "mrr": 0.7479166666666667,
+      "hit_rate": 0.875
+    },
+    {
+      "name": "mmr_k5_lam0.8",
+      "recall_at_k_in_scope": 0.925,
+      "recall_at_k": 0.8680555555555555,
+      "precision_at_k": 0.65,
+      "mrr": 0.7847222222222222,
+      "hit_rate": 0.9166666666666666
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "experiment": "H3_embedding_model",
+  "retriever": "mmr k=5 fetch_k=20 lambda=0.5",
+  "chunk_size": 512,
+  "results": [
+    {
+      "model": "multi-qa-MiniLM (baseline)",
+      "recall_at_k_in_scope": 0.925,
+      "recall_at_k": 0.8680555555555555,
+      "precision_at_k": 0.5750000000000001,
+      "mrr": 0.7708333333333334,
+      "hit_rate": 0.9166666666666666
+    },
+    {
+      "model": "all-MiniLM-L6-v2",
+      "recall_at_k_in_scope": 0.875,
+      "recall_at_k": 0.8333333333333334,
+      "precision_at_k": 0.65,
+      "mrr": 0.78125,
+      "hit_rate": 0.875
+    },
+    {
+      "model": "bge-small-en-v1.5",
+      "recall_at_k_in_scope": 0.875,
+      "recall_at_k": 0.7847222222222222,
+      "precision_at_k": 0.6166666666666667,
+      "mrr": 0.75,
+      "hit_rate": 0.8333333333333334
+    }
+  ]
+}

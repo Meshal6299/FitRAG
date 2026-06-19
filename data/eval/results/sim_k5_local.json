@@ -1,0 +1,775 @@
+{
+  "config": {
+    "name": "sim_k5_local",
+    "embedding_model": "multi-qa-MiniLM-L6-cos-v1",
+    "index_path": "embeddings/vector_store",
+    "search_type": "similarity",
+    "k": 5,
+    "fetch_k": 20,
+    "lambda_mult": 0.5,
+    "use_retrieval": true,
+    "llm_backend": "ollama",
+    "llm_model": "llama3.1:8b",
+    "temperature": 0,
+    "max_tokens": 1024,
+    "prompt_variant": "strict",
+    "judge": true,
+    "judge_model": "openai/gpt-oss-120b",
+    "judge_sleep": 0.3
+  },
+  "aggregate": {
+    "n_questions": 30,
+    "recall_at_k": 0.8819444444444445,
+    "precision_at_k": 0.6416666666666667,
+    "mrr": 0.7777777777777778,
+    "hit_rate": 0.9166666666666666,
+    "recall_at_k_in_scope": 0.925,
+    "correctness_in_scope": 0.625,
+    "correctness_ambiguous": 0.55,
+    "faithfulness": 0.8928571428571429,
+    "refusal_accuracy": 0.92,
+    "in_scope_refused_rate": 0.1,
+    "out_of_scope_refused_rate": 1.0,
+    "ambiguous_refused_rate": 0.4
+  },
+  "per_question": [
+    {
+      "id": "Q01",
+      "category": "in_scope",
+      "question": "How many days per week of muscle-strengthening activity does the WHO recommend for adults?",
+      "expected_sources": [
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf"
+      ],
+      "answer": "According to Source 1, page 13 and other similar sources (Source 2, page 14; Source 3, page 62; Source 4, page 52), the World Health Organization (WHO) recommends that older adults do muscle-strengthening activities at moderate or greater intensity that involve all major muscle groups on **2 or more days a week**.\n\nNote: The WHO does not explicitly state \"adults\" in these sources, but it is mentioned in Source 5, page 21. However, the recommendation for older adults (which includes adults with chronic conditions) is consistent across all sources.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 5,
+      "correctness": 1.0,
+      "correctness_reason": "Correctly states the WHO recommendation of at least 2 days per week",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All statements are directly supported by the cited WHO source excerpts."
+    },
+    {
+      "id": "Q02",
+      "category": "in_scope",
+      "question": "What weekly aerobic activity minimum does the WHO recommend for adults?",
+      "expected_sources": [
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf"
+      ],
+      "answer": "According to Source 1, page 61, the World Health Organization (WHO) recommends that adults with chronic conditions should do at least:\n\n* 150–300 minutes of moderate-intensity aerobic physical activity; or\n* At least 75–150 minutes of vigorous-intensity aerobic physical activity; or\n* An equivalent combination of moderate- and vigorous-intensity activity throughout the week for substantial health benefits.\n\nSource: WHO.pdf, page 61",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 5,
+      "correctness": 1.0,
+      "correctness_reason": "Fully correct and complete, matches the reference answer",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by Source 1"
+    },
+    {
+      "id": "Q03",
+      "category": "in_scope",
+      "question": "What is progressive overload?",
+      "expected_sources": [
+        "progressive_overload.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf"
+      ],
+      "retrieved_sources": [
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "progressive_overload.pdf",
+        "progressive_overload.pdf"
+      ],
+      "answer": "According to Source 3, page 4, \"The principle of progressive overload posits that gradual increases in exercise demands—whether through modifications of frequency, intensity, time or type—are necessary to elicit continued adaptation\" (Kraemer et al., 2020; Plotkin et al., 2022).\n\nIn simpler terms, progressive overload means gradually increasing the demands of your workout over time by making small changes to how often you exercise, how hard you're working out, how long you're exercising, or what type of exercise you're doing.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 5,
+      "correctness": 1.0,
+      "correctness_reason": "Accurately defines progressive overload with all key elements, matching the reference.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the quoted passage in Source 3."
+    },
+    {
+      "id": "Q04",
+      "category": "in_scope",
+      "question": "How many sets and reps should a beginner perform per exercise according to NSCA guidance for older adults / novices?",
+      "expected_sources": [
+        "NSCA_3.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "NSCA_1.pdf",
+        "NSCA_5.pdf",
+        "NSCA_5.pdf"
+      ],
+      "answer": "According to the provided sources, for beginners (or healthy older adults), it is recommended to:\n\n* Perform 2-3 sets per exercise\n* Do 10-15 repetitions at a lower relative resistance\n\nThis comes from Source 1: NSCA_3.pdf, page 6.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 5,
+      "correctness": 1.0,
+      "correctness_reason": "Exact match with correct sets, reps, and context",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by Source 1"
+    },
+    {
+      "id": "Q05",
+      "category": "in_scope",
+      "question": "According to Starting Strength's 'Who Wants to Be a Novice?', how often should a novice train per week and with what rest pattern?",
+      "expected_sources": [
+        "SSW.pdf"
+      ],
+      "retrieved_sources": [
+        "SSW.pdf",
+        "SSW.pdf",
+        "NSCA_3.pdf",
+        "NSCA_5.pdf",
+        "NSCA_5.pdf"
+      ],
+      "answer": "According to Source 1 (SSW.pdf, page 2), a novice trainee should train 3 times a week. The recommended schedule is Monday/Wednesday/Friday, but it's suggested to suit your own schedule.\n\nThe rest pattern mentioned in the context is that more frequency has proven to be too much training and not enough recovery, while less frequency doesn't allow for adequate recovery. However, it specifically states that a 3-day/week program is \"just about perfect\" for the novice trainee, with a convenient time frame of 48-72 hours between workouts.\n\nSo, to summarize: 3 times a week, with at least 2 days of rest in between (e.g., Monday/Wednesday/Friday).",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correctly states 3 sessions and ~48‑72 hr rest, but omits the specific longer (~72 hr) rest after the third session",
+      "faithfulness_raw": 3,
+      "faithfulness": 0.5,
+      "faithfulness_reason": "Most claims match Source 1, but the statement about less frequency not allowing adequate recovery is not supported by the provided context."
+    },
+    {
+      "id": "Q06",
+      "category": "in_scope",
+      "question": "Is resistance training safe for children and adolescents according to the NSCA youth position statement?",
+      "expected_sources": [
+        "NSCA_2.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_5.pdf",
+        "NSCA_5.pdf",
+        "NSCA_5.pdf",
+        "NSCA_5.pdf",
+        "NSCA_1.pdf"
+      ],
+      "answer": "According to the NSCA, a properly designed and supervised resistance training program is relatively safe for youth. (Source: NSCA_5.pdf, page 1)\n\nAdditionally, it's mentioned that there are no justifiable safety reasons that preclude children or adolescents from participating in such a resistance training program. (Source: NSCA_5.pdf, page 3)",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 5,
+      "correctness": 1.0,
+      "correctness_reason": "Accurately states that a properly designed, supervised program is safe for youth, matching the reference.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the cited NSCA sources"
+    },
+    {
+      "id": "Q07",
+      "category": "in_scope",
+      "question": "What are the main benefits of resistance training for older adults?",
+      "expected_sources": [
+        "NSCA_3.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "NSCA_5.pdf"
+      ],
+      "answer": "According to the sources provided, the main benefits of resistance training for older adults include:\n\n* Improved muscular strength (Source 3)\n* Improved power (Source 3)\n* Enhanced neuromuscular functioning (Source 3)\n* Improved mobility (Source 7)\n* Improved physical functioning (Source 7)\n* Performance improvements in daily activities (Source 7)\n* Countering age-related processes of sarcopenia, muscle weakness, and mobility loss (Source 4)\n* Reducing the risk of chronic disease, disability, and premature mortality (Source 4)\n\nThese benefits are supported by strong evidence and are mentioned throughout the provided sources.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Correctly lists many benefits but omits muscle mass, bone health, and fall‑risk reduction, making it incomplete.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the cited sources"
+    },
+    {
+      "id": "Q08",
+      "category": "in_scope",
+      "question": "What is long-term athletic development (LTAD)?",
+      "expected_sources": [
+        "NSCA_4.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_2.pdf",
+        "NSCA_4.pdf",
+        "NSCA_4.pdf",
+        "NSCA_4.pdf",
+        "NSCA_4.pdf"
+      ],
+      "answer": "Long-term athletic development (LTAD) refers to the \"habitual development of athleticism over time\" to improve health and fitness, enhance physical performance, reduce the relative risk of injury, and develop the confidence and competence of all youth. \n\n[Source 1: NSCA_2.pdf, page 18]",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "reciprocal_rank": 0.5,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Captures the long-term development idea but omits the multi-stage framework and psychosocial/lifelong activity aspects.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources"
+    },
+    {
+      "id": "Q09",
+      "category": "in_scope",
+      "question": "What does the NSCA recommend regarding qualified instruction and supervision for youth resistance training?",
+      "expected_sources": [
+        "NSCA_2.pdf",
+        "NSCA_5.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_5.pdf",
+        "NSCA_5.pdf",
+        "NSCA_1.pdf",
+        "NSCA_5.pdf",
+        "NSCA_5.pdf"
+      ],
+      "answer": "According to Source 3 (NSCA_1.pdf, page 11), the NSCA recommends that children participating in strength and conditioning activities should be cleared as specified in the \"Standard for Pre-participation Screening and Clearance\". Additionally, it is recommended that such activities should be supervised by a qualified adult or several adults depending on class size.\n\nSource: NSCA_1.pdf, page 11",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 0.5,
+      "precision_at_k": 0.8,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Mentions qualified supervision but omits safe environment, warm-up, and technique focus, making it partially correct.",
+      "faithfulness_raw": 3,
+      "faithfulness": 0.5,
+      "faithfulness_reason": "First claim is supported by Source 3, but the supervision detail comes from a different source, not Source 3."
+    },
+    {
+      "id": "Q10",
+      "category": "in_scope",
+      "question": "What variables can be manipulated to create progressive overload?",
+      "expected_sources": [
+        "progressive_overload.pdf"
+      ],
+      "retrieved_sources": [
+        "progressive_overload.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "progressive_overload.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "progressive_overload.pdf"
+      ],
+      "answer": "According to Source 3 (page 4), any of the following variables can be manipulated to create an overload:\n\n* Speed of movement\n* Resistance to the movement\n* Variations in terrain\n\nThese variables can be adjusted or increased by a certain percentage, such as a 5% adjustment, to create progressive overload.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 2,
+      "correctness": 0.25,
+      "correctness_reason": "Only mentions speed and resistance, omits most key variables and adds unrelated terrain",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All listed variables and the 5% adjustment are directly mentioned in Source 3."
+    },
+    {
+      "id": "Q11",
+      "category": "in_scope",
+      "question": "Does the WHO recommend any physical activity even for people who cannot meet the full guidelines?",
+      "expected_sources": [
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [
+        "WHO.pdf",
+        "NSCA_3.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf"
+      ],
+      "answer": "According to Source 4 (WHO.pdf, page 26), it says that \"The recommendations on physical activity and sedentary behaviour contained within the guidelines should be used to inform pre-service training and professional development courses for health-care workers, physical activity specialists and education professionals.\" However, it also mentions that if national guidance is not available, then the content of their advice on these topics should be used.\n\nAdditionally, Source 5 (WHO.pdf, page 17) states that \"Pre-exercise medical clearance is generally unnecessary for individuals without contraindications prior to beginning physical activity.\"\n\nSo, based on this information, it seems that the WHO recommends some level of physical activity even if people cannot meet the full guidelines.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 2,
+      "correctness": 0.25,
+      "correctness_reason": "Provides unrelated details and does not directly state that WHO advises any activity for those unable to meet full guidelines",
+      "faithfulness_raw": 3,
+      "faithfulness": 0.5,
+      "faithfulness_reason": "Most statements are directly supported, but the concluding inference about WHO recommending activity despite not meeting full guidelines is not explicitly stated in the sources."
+    },
+    {
+      "id": "Q12",
+      "category": "in_scope",
+      "question": "What does NSCA say about weightlifting (Olympic-style lifts) for sports performance?",
+      "expected_sources": [
+        "NSCA_5.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_2.pdf",
+        "NSCA_5.pdf",
+        "NSCA_2.pdf",
+        "NSCA_2.pdf",
+        "NSCA_1.pdf"
+      ],
+      "answer": "According to the provided sources, the National Strength and Conditioning Association (NSCA) highlights the importance of prescribing weightlifting exercises and their derivatives for sports performance. Specifically, it mentions that weightlifting refers to a competitive sport that involves the performance of the snatch and clean and jerk lifts.\n\nSource: NSCA_2.pdf, page 4",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2,
+      "reciprocal_rank": 0.5,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Mentions NSCA’s emphasis on weightlifting but omits the key point about its effectiveness for power and performance when properly programmed and supervised.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the cited sources"
+    },
+    {
+      "id": "Q13",
+      "category": "in_scope",
+      "question": "What is the recommended frequency of resistance training per muscle group for older adults?",
+      "expected_sources": [
+        "NSCA_3.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "NSCA_5.pdf"
+      ],
+      "answer": "According to Source 4, a training frequency of 2 –3 times per week, per muscle group, provides the optimal stimulus to maximize increases in strength and skeletal muscle size in older adults.\n\nSource: NSCA_3.pdf, page 4",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 5,
+      "correctness": 1.0,
+      "correctness_reason": "Matches reference frequency and context accurately",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the statement found in Source 4 without adding unsupported information."
+    },
+    {
+      "id": "Q14",
+      "category": "in_scope",
+      "question": "How does continuous running combined with strength endurance training affect muscular endurance according to the JUMORA study?",
+      "expected_sources": [
+        "Increasing_Anaerobic_Endurance_Using_Strength_Endu.pdf"
+      ],
+      "retrieved_sources": [
+        "Increasing_Anaerobic_Endurance_Using_Strength_Endu.pdf",
+        "Increasing_Anaerobic_Endurance_Using_Strength_Endu.pdf",
+        "Increasing_Anaerobic_Endurance_Using_Strength_Endu.pdf",
+        "Increasing_Anaerobic_Endurance_Using_Strength_Endu.pdf",
+        "Increasing_Anaerobic_Endurance_Using_Strength_Endu.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question.\n\nHowever, I can tell you that there is a mention of a study (Source 1) designed to experimentally examine and compare the effects of continuous running combined with strength training on anaerobic endurance. But it doesn't provide specific information about the JUMORA study or its findings regarding muscular endurance.\n\nIf you could provide more context or clarify which study you are referring to, I would be happy to try and help further.",
+      "refused": true,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 1,
+      "correctness": 0.0,
+      "correctness_reason": "The answer provides no factual information and does not state the study's finding, contradicting the reference."
+    },
+    {
+      "id": "Q15",
+      "category": "in_scope",
+      "question": "What does the progressive overload scoping review say about how progressive overload is reported in long-term exercise studies?",
+      "expected_sources": [
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf"
+      ],
+      "retrieved_sources": [
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf",
+        "ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf"
+      ],
+      "answer": "According to Source 2, page 8, the scoping review found that many studies did not provide details on all three key criteria of progressive overload: target of progression, frequency of progression, and magnitude of progression. In fact, it states that \"studies were categorized based on the completeness of their reporting, distinguishing those that reported all three parameters from those that reported only one or two.\" This suggests that there is a lack of consistent reporting of progressive overload in long-term exercise studies.\n\nSource: ProgressiveOverloadinLong-TermExerciseInterventionsTargetingExecutiveFunction.pdf, page 8",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 5,
+      "correctness": 1.0,
+      "correctness_reason": "Accurately captures the inconsistency in reporting and limited examination of progressive overload as described in the reference.",
+      "faithfulness_raw": 4,
+      "faithfulness": 0.75,
+      "faithfulness_reason": "The answer accurately reflects the source's description of categorizing studies by reporting completeness, though it adds an unquantified claim about 'many' studies lacking details."
+    },
+    {
+      "id": "Q16",
+      "category": "in_scope",
+      "question": "What warm-up does the NSCA recommend before a youth resistance training session?",
+      "expected_sources": [
+        "NSCA_5.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_5.pdf",
+        "NSCA_5.pdf",
+        "NSCA_1.pdf",
+        "NSCA_5.pdf",
+        "NSCA_3.pdf"
+      ],
+      "answer": "According to Source 2, page 10, the NSCA recommends a warm-up protocol that includes moderate to high intensity dynamic movements to enhance power performance in youth.\n\nThis comes from [Source 2: NSCA_5.pdf, page 10]",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Mentions dynamic warm-up but omits the 5‑10 minute duration and start‑of‑session timing.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the statement in Source 2 about dynamic warm-ups enhancing youth power performance."
+    },
+    {
+      "id": "Q17",
+      "category": "in_scope",
+      "question": "Why does Rippetoe argue that a novice should do only a few basic barbell exercises rather than many machine exercises?",
+      "expected_sources": [
+        "SSW.pdf"
+      ],
+      "retrieved_sources": [
+        "SSW.pdf",
+        "NSCA_5.pdf",
+        "SSW.pdf",
+        "NSCA_2.pdf",
+        "NSCA_2.pdf"
+      ],
+      "answer": "According to Source 1, SSW.pdf, page 1, Rippetoe argues that a novice should do only a few basic barbell exercises because \"we are going to squat, bench press, deadlift, press... In keeping with our pledge to simplicity...\" This suggests that he believes in focusing on the basics and keeping things simple.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Mentions focusing on basic barbell lifts but omits the key points about maximal growth, strength gains, and recovery interference.",
+      "faithfulness_raw": 4,
+      "faithfulness": 0.75,
+      "faithfulness_reason": "The answer accurately reflects the source's emphasis on simplicity and basic lifts, but adds an unsupported claim about novices specifically."
+    },
+    {
+      "id": "Q18",
+      "category": "in_scope",
+      "question": "What does the WHO say about sedentary behaviour for adults?",
+      "expected_sources": [
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf"
+      ],
+      "answer": "According to Source 1 (WHO.pdf, page 47), sedentary behavior is defined as time spent sitting or lying with low energy expenditure, while awake, in the context of occupational, educational, home and community settings, and transportation.\n\nSource 4 (WHO.pdf, page 48) states that there is evidence of an association between greater time spent in sedentary behaviour and higher all-cause mortality, cardiovascular mortality, cardiovascular disease incidence, and type-2 diabetes incidence.\n\nSource 3 (WHO.pdf, page 67) mentions that adults with chronic conditions, such as cancer survivors, people living with hypertension, type-2 diabetes, and HIV, are associated with poor health outcomes due to higher amounts of sedentary behavior.\n\nTherefore, the WHO recommends reducing sedentary behaviour for adults to improve overall health and reduce the risk of chronic diseases.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correctly states WHO recommends reducing sedentary time, but omits the advice to replace it with physical activity",
+      "faithfulness_raw": 4,
+      "faithfulness": 0.75,
+      "faithfulness_reason": "All main claims are supported, but the explicit recommendation to reduce sedentary behavior is not directly stated in the cited excerpts."
+    },
+    {
+      "id": "Q19",
+      "category": "in_scope",
+      "question": "How should training load progress for a true novice according to Starting Strength?",
+      "expected_sources": [
+        "SSW.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_2.pdf",
+        "NSCA_2.pdf",
+        "SSW.pdf",
+        "NSCA_5.pdf",
+        "SSW.pdf"
+      ],
+      "answer": "According to Source 3 (SSW.pdf, page 4), \"Give it a reason to need to be bigger by training a little heavier each time...\". This suggests that for a true novice, the training load should progress gradually by increasing the weight lifted over time.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "reciprocal_rank": 0.3333333333333333,
+      "correctness_raw": 3,
+      "correctness": 0.5,
+      "correctness_reason": "Provides a vague notion of gradual increase but omits key details like starting with an empty bar, sets of 5, and small incremental adds each workout.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer correctly cites Source 3, which states novices should train a little heavier each time."
+    },
+    {
+      "id": "Q20",
+      "category": "in_scope",
+      "question": "What recovery considerations does the NSCA LTAD position statement emphasize?",
+      "expected_sources": [
+        "NSCA_4.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_2.pdf",
+        "NSCA_4.pdf",
+        "NSCA_5.pdf",
+        "NSCA_5.pdf",
+        "NSCA_4.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question. The provided context only mentions the 10 pillars of successful long-term athletic development, growth and maturation, and resistance training, but it doesn't specifically address recovery considerations.\n\nHowever, I can try to infer some general principles from the context. The NSCA LTAD position statement emphasizes considering growth and maturation in the implementation of strength and conditioning programs (Source 1: NSCA_2.pdf, page 18). This might imply that recovery considerations should be tailored to the individual's developmental stage.\n\nBut without more specific information on recovery considerations, I cannot provide a detailed answer.",
+      "refused": true,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "reciprocal_rank": 0.5,
+      "correctness_raw": 1,
+      "correctness": 0.0,
+      "correctness_reason": "The system answer fails to provide the correct recovery considerations and contradicts the reference."
+    },
+    {
+      "id": "Q21",
+      "category": "ambiguous",
+      "question": "How much should I train?",
+      "expected_sources": [
+        "WHO.pdf",
+        "SSW.pdf",
+        "NSCA_3.pdf"
+      ],
+      "retrieved_sources": [
+        "progressive_overload.pdf",
+        "NSCA_5.pdf",
+        "NSCA_3.pdf",
+        "SSW.pdf",
+        "NSCA_4.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question. The context only mentions training frequency and volume for specific populations (children and adolescents, healthy older adults, and youth), but it doesn't provide a general guideline for how much one should train.",
+      "refused": true,
+      "hit": 1.0,
+      "recall_at_k": 0.6666666666666666,
+      "precision_at_k": 0.4,
+      "reciprocal_rank": 0.3333333333333333,
+      "correctness_raw": 1,
+      "correctness": 0.0,
+      "correctness_reason": "The system answer fails to provide the correct guideline, contradicting the reference answer"
+    },
+    {
+      "id": "Q22",
+      "category": "ambiguous",
+      "question": "Is more training always better?",
+      "expected_sources": [
+        "NSCA_4.pdf",
+        "SSW.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_2.pdf",
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "progressive_overload.pdf",
+        "NSCA_5.pdf"
+      ],
+      "answer": "According to Source 4: progressive_overload.pdf, page 3, it seems that new exercisers may experience an improvement rate of 8-10% in a week due to initial neurological efficiency changes. However, once the current tissue potential is attained, results slow down.\n\nIt's also mentioned in Source 1 (NSCA_2.pdf) that training structure should increase with each stage and that training emphasis shifts from physical literacy to technical competency to performance. This suggests that there may be an optimal amount of training for different stages of development.\n\nBut it doesn't explicitly say that more training is always better. In fact, Source 4 implies that once the current tissue potential is attained, results slow down, suggesting that there might be a point of diminishing returns.\n\nSo, to answer your question: no, more training may not always be better.",
+      "refused": false,
+      "hit": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "reciprocal_rank": 0.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correctly states more training is not always better, but omits the explicit need for rest and recovery",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All statements are directly supported by the provided sources"
+    },
+    {
+      "id": "Q23",
+      "category": "ambiguous",
+      "question": "What is the best workout?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "SSW.pdf",
+        "SSW.pdf",
+        "NSCA_2.pdf",
+        "WHO.pdf",
+        "WHO.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question. The provided context mentions specific training methods, such as doing sets of 5 and increasing weight in small jumps, but it doesn't provide a definitive answer on what constitutes the \"best\" workout.",
+      "refused": true,
+      "correctness_raw": 2,
+      "correctness": 0.25,
+      "correctness_reason": "System answer fails to convey the reference's key point that there is no single best workout and depends on individual factors."
+    },
+    {
+      "id": "Q24",
+      "category": "ambiguous",
+      "question": "Should children lift weights?",
+      "expected_sources": [
+        "NSCA_2.pdf"
+      ],
+      "retrieved_sources": [
+        "NSCA_5.pdf",
+        "NSCA_2.pdf",
+        "NSCA_2.pdf",
+        "NSCA_2.pdf",
+        "NSCA_5.pdf"
+      ],
+      "answer": "According to the sources provided, it seems that weightlifting can be a relatively safe sport for children and adolescents when proper training guidelines are followed and qualified coaching is available. In fact, research suggests that exposing children and adolescents to weightlifting-based training can elicit improvements in motor control, strength, power, speed, and cardiorespiratory fitness (Source 3: NSCA_2.pdf, page 16).\n\nAdditionally, the benefits of using weightlifting-based exercises with youth arguably outweigh the risks, with researchers concluding that weightlifting can improve body composition, reduce injury risk factors, and result in adaptations beneficial for bone formation and growth (Source 3: NSCA_2.pdf, page 16).\n\nTherefore, it appears that children should lift weights, but under proper guidance and supervision.\n\n[Source: NSCA_2.pdf, page 16]",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "reciprocal_rank": 0.5,
+      "correctness_raw": 5,
+      "correctness": 1.0,
+      "correctness_reason": "Accurately states children should lift weights with proper supervision, matching the reference.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources"
+    },
+    {
+      "id": "Q25",
+      "category": "ambiguous",
+      "question": "How do older adults stay strong?",
+      "expected_sources": [
+        "NSCA_3.pdf",
+        "WHO.pdf"
+      ],
+      "retrieved_sources": [
+        "WHO.pdf",
+        "WHO.pdf",
+        "NSCA_3.pdf",
+        "WHO.pdf",
+        "WHO.pdf"
+      ],
+      "answer": "According to Source 3: NSCA_3.pdf, page 7, resistance training is an effective mode of physical activity to mitigate the age-related loss in muscular strength. This means that older adults can stay strong by doing exercises that help build and maintain muscle strength.\n\nAdditionally, according to Source 4: WHO.pdf, page 13, starting with small amounts of physical activity and gradually increasing frequency, intensity, and duration over time is recommended for older adults.",
+      "refused": false,
+      "hit": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "correctness_raw": 4,
+      "correctness": 0.75,
+      "correctness_reason": "Correctly cites resistance training but omits frequency, muscle-group targeting, and progressive overload details.",
+      "faithfulness_raw": 5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the cited sources"
+    },
+    {
+      "id": "Q26",
+      "category": "out_of_scope",
+      "question": "What should I eat before a workout to maximise performance?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "NSCA_5.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf",
+        "WHO.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question.",
+      "refused": true
+    },
+    {
+      "id": "Q27",
+      "category": "out_of_scope",
+      "question": "Which creatine brand is the best?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "NSCA_3.pdf",
+        "NSCA_3.pdf",
+        "NSCA_1.pdf",
+        "NSCA_2.pdf",
+        "NSCA_3.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question.",
+      "refused": true
+    },
+    {
+      "id": "Q28",
+      "category": "out_of_scope",
+      "question": "How do I treat a torn ACL?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "NSCA_3.pdf",
+        "NSCA_1.pdf",
+        "NSCA_4.pdf",
+        "NSCA_1.pdf",
+        "NSCA_5.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question.",
+      "refused": true
+    },
+    {
+      "id": "Q29",
+      "category": "out_of_scope",
+      "question": "What's the weather like for outdoor running today?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "NSCA_1.pdf",
+        "NSCA_1.pdf",
+        "NSCA_1.pdf",
+        "NSCA_1.pdf",
+        "WHO.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question.",
+      "refused": true
+    },
+    {
+      "id": "Q30",
+      "category": "out_of_scope",
+      "question": "Can you write me a Python script to track my workouts?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "WHO.pdf",
+        "SSW.pdf",
+        "WHO.pdf",
+        "NSCA_3.pdf",
+        "SSW.pdf"
+      ],
+      "answer": "I don't have enough information in my knowledge base to answer this question.",
+      "refused": true
+    }
+  ]
+}

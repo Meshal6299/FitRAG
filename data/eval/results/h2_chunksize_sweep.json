@@ -1,0 +1,31 @@
+{
+  "experiment": "H2_chunk_size",
+  "retriever": "mmr k=5 fetch_k=20 lambda=0.5",
+  "overlap": 50,
+  "results": [
+    {
+      "chunk_size": 256,
+      "recall_at_k_in_scope": 0.825,
+      "recall_at_k": 0.7847222222222222,
+      "precision_at_k": 0.5750000000000001,
+      "mrr": 0.688888888888889,
+      "hit_rate": 0.8333333333333334
+    },
+    {
+      "chunk_size": 512,
+      "recall_at_k_in_scope": 0.925,
+      "recall_at_k": 0.8680555555555555,
+      "precision_at_k": 0.5750000000000001,
+      "mrr": 0.7708333333333334,
+      "hit_rate": 0.9166666666666666
+    },
+    {
+      "chunk_size": 1024,
+      "recall_at_k_in_scope": 0.875,
+      "recall_at_k": 0.8611111111111112,
+      "precision_at_k": 0.6083333333333333,
+      "mrr": 0.7916666666666666,
+      "hit_rate": 0.9166666666666666
+    }
+  ]
+}
