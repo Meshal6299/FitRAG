@@ -578,5 +578,5 @@ def evaluate(
 
 
 if __name__ == "__main__":
-    # Quick smoke test: retrieval-only baseline (no judge, fast & free).
-    evaluate({"name": "smoke_retrieval_only", "judge": False})
+
+    evaluate({"name": "h4_lenient", "prompt_variant": "lenient", **LOCAL_GEN, **LOCAL_JUDGE})
